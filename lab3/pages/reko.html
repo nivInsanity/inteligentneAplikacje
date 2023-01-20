@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8">
+ <title>Oceń piwa</title>
+ </head>
+ <body>
+    REKO
+    <table>
+        <tr>
+            <th>Nazwa</th>
+            <th>id</th>
+            <th>poziom abv</th>
+            <th>goryczka</th>
+            <th>styl</th>
+            <th>ocena</th>
+            <th>estymowana ocena</th>
+        </tr>
+        {{ range . }}
+         <tr>
+            <td>{{ .Name }}</td>
+            <td>{{ .Id }}</td>
+            <td>{{.Abv}}</td>
+            <td>{{.Ibu}}</td>
+            <td>{{.Style}}</td>
+            <td>{{.Rate}}</td>
+            <td>{{.Estim}}</td>
+        </tr>
+        {{ end }}  
+    </table>
+
+     <a href="/piwa/">Powrót</a>
+ </body>
+</html>

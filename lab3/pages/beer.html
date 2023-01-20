@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="utf-8">
+ <title>Oceń piwa</title>
+ </head>
+ <body>
+ Obiekt (10 losowych piw):
+ <ul>
+    {{ range . }}
+     <li>{{ .Name }} (id: {{ .Id }})</li>
+    {{ end }}
+</ul>
+
+<form action="/reko/" method="post">
+    <table>
+        <tr>
+            <th>Nazwa</th>
+            <th>id</th>
+            <th>poziom abv</th>
+            <th>goryczka</th>
+            <th>styl</th>
+            <th>ocena</th>
+            <th>estymowana ocena</th>
+        </tr>
+        {{ range . }}
+         <tr>
+            <td>{{ .Name }}</td>
+            <td>{{ .Id }}</td>
+            <td>{{.Abv}}</td>
+            <td>{{.Ibu}}</td>
+            <td>{{.Style}}</td>
+            <td>{{.Rate}}</td>
+            <td>{{.Estim}}</td>
+            <td><select name="piwo{{.Id}}">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select></td>
+        </tr>
+        
+        {{ end }}
+        <tr>
+            <td>
+                <input type="submit" value="Wyslij">
+            </td>
+        </tr>
+    </table>
+</form>
+
+ </body>
+</html>
