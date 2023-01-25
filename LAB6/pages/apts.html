@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lista apartamentów</title>
+</head>
+
+<body>
+    <h1>Lista apartamentów</h1>
+    {{ if .SmallApts }}
+    <h2>Apartamenty poniżej 50 m2</h2>
+    <ul>
+        {{ range .SmallApts }}
+        <li>{{ .ID }} - {{ .Area }} m2 - {{ .Price }} zł</li>
+        {{ end }}
+    </ul>
+    {{ end }}
+    {{ if .MediumApts }}
+    <h2>Apartamenty od 50 do 100 m2</h2>
+    <ul>
+        {{ range .MediumApts }}
+        <li>{{ .ID }} - {{ .Area }} m2 - {{ .Price }} zł</li>
+        {{ end }}
+    </ul>
+    {{ end }}
+    {{ if .LargeApts }}
+    <h2>Apartamenty powyżej 100 m2</h2>
+    <ul>
+        {{ range .LargeApts }}
+        <li>{{ .ID }} - {{ .Area }} m2 - {{ .Price }} zł</li>
+        {{ end }}
+    </ul>
+    {{ end }}
+</body>
+
+</html>
